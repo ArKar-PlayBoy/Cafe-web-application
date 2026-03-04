@@ -11,6 +11,10 @@ class TableController extends Controller
     public function index()
     {
         $tables = CafeTable::all();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b466fb (more reliable and front-end changes)
         return view('admin.tables.index', compact('tables'));
     }
 
@@ -27,6 +31,10 @@ class TableController extends Controller
         ]);
 
         CafeTable::create($validated);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b466fb (more reliable and front-end changes)
         return redirect()->route('admin.tables.index')->with('success', 'Table created successfully.');
     }
 
@@ -38,18 +46,30 @@ class TableController extends Controller
     public function update(Request $request, CafeTable $table)
     {
         $validated = $request->validate([
+<<<<<<< HEAD
             'table_number' => 'required|string|unique:cafe_tables,table_number,' . $table->id,
+=======
+            'table_number' => 'required|string|unique:cafe_tables,table_number,'.$table->id,
+>>>>>>> 5b466fb (more reliable and front-end changes)
             'capacity' => 'required|integer|min:1',
             'status' => 'required|in:available,occupied,reserved',
         ]);
 
         $table->update($validated);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b466fb (more reliable and front-end changes)
         return redirect()->route('admin.tables.index')->with('success', 'Table updated successfully.');
     }
 
     public function destroy(CafeTable $table)
     {
         $table->delete();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b466fb (more reliable and front-end changes)
         return redirect()->route('admin.tables.index')->with('success', 'Table deleted successfully.');
     }
 }

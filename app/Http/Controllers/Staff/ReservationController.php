@@ -11,6 +11,10 @@ class ReservationController extends Controller
     public function index()
     {
         $reservations = Reservation::with('user', 'table')->latest()->get();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b466fb (more reliable and front-end changes)
         return view('staff.reservations.index', compact('reservations'));
     }
 
@@ -21,6 +25,10 @@ class ReservationController extends Controller
         ]);
 
         $reservation->update(['status' => $request->status]);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b466fb (more reliable and front-end changes)
         return back()->with('success', 'Reservation status updated successfully.');
     }
 }

@@ -12,6 +12,13 @@ class Cart extends Model
 
     protected $fillable = ['user_id', 'menu_item_id', 'quantity'];
 
+<<<<<<< HEAD
+=======
+    protected $casts = [
+        'quantity' => 'integer',
+    ];
+
+>>>>>>> 5b466fb (more reliable and front-end changes)
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

@@ -13,7 +13,11 @@ export default {
     theme: {
         extend: {
             fontFamily: {
+<<<<<<< HEAD
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+=======
+                sans: ['Outfit', 'Inter', 'Figtree', ...defaultTheme.fontFamily.sans],
+>>>>>>> 5b466fb (more reliable and front-end changes)
             },
             colors: {
                 primary: {

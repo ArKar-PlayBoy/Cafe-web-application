@@ -10,7 +10,11 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     @foreach($menuItems as $item)
+<<<<<<< HEAD
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 overflow-hidden">
+=======
+    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-gray-100 dark:border-slate-700 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+>>>>>>> 5b466fb (more reliable and front-end changes)
         <img src="{{ $item->featured_image }}" alt="{{ $item->name }}" class="w-full h-48 object-cover">
         <div class="p-4">
             <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100">{{ $item->name }}</h3>
@@ -23,10 +27,17 @@
                 </span>
             </div>
             <div class="flex gap-2 mt-4">
+<<<<<<< HEAD
                 <a href="{{ route('admin.menu.edit', $item->id) }}" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</a>
                 <form action="{{ route('admin.menu.destroy', $item->id) }}" method="POST">
                     @csrf @method('DELETE')
                     <button type="submit" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700" onclick="return confirm('Are you sure?')">Delete</button>
+=======
+                <a href="{{ route('admin.menu.edit', $item->id) }}" class="bg-amber-500 text-white px-3 py-1 rounded-lg hover:bg-amber-600 transition-colors shadow-sm hover:shadow active:scale-95">Edit</a>
+                <form action="{{ route('admin.menu.destroy', $item->id) }}" method="POST">
+                    @csrf @method('DELETE')
+                    <button type="submit" class="bg-rose-600 text-white px-3 py-1 rounded-lg hover:bg-rose-700 transition-colors shadow-sm hover:shadow active:scale-95" onclick="return confirm('Are you sure?')">Delete</button>
+>>>>>>> 5b466fb (more reliable and front-end changes)
                 </form>
             </div>
         </div>

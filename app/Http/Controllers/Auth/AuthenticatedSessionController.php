@@ -24,6 +24,21 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+<<<<<<< HEAD
+=======
+        $user = \App\Models\User::where('email', $request->email)->first();
+
+        if ($user && $user->is_banned) {
+            if ($user->ban_reason) {
+                $request->session()->flash('ban_reason', $user->ban_reason);
+            }
+
+            return back()->withErrors([
+                'email' => 'Your account has been banned. Contact support.',
+            ])->onlyInput('email');
+        }
+
+>>>>>>> 5b466fb (more reliable and front-end changes)
         $request->authenticate();
 
         $request->session()->regenerate();

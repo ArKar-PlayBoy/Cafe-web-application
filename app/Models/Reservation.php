@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\HasMany;
+=======
+>>>>>>> 5b466fb (more reliable and front-end changes)
 
 class Reservation extends Model
 {

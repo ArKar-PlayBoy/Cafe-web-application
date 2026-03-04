@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Staff;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Reservation;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
+=======
+>>>>>>> 5b466fb (more reliable and front-end changes)
 
 class DashboardController extends Controller
 {
