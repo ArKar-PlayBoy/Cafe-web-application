@@ -11,9 +11,9 @@ return [
     |
     */
 
-    'key' => env('STRIPE_KEY', 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    'secret' => env('STRIPE_SECRET', 'sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
-    'webhook_secret' => env('STRIPE_WEBHOOK_SECRET', 'whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
+    'key' => env('STRIPE_KEY'),
+    'secret' => env('STRIPE_SECRET'),
+    'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
 
     /*
     |--------------------------------------------------------------------------
