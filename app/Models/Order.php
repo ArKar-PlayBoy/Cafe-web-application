@@ -6,21 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Relations\HasOne;
->>>>>>> 5b466fb (more reliable and front-end changes)
 
 class Order extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
-    protected $fillable = ['user_id', 'status', 'total', 'payment_method', 'payment_status'];
-
-    protected $casts = [
-        'total' => 'decimal:2',
-=======
     protected $fillable = [
         'user_id',
         'status',
@@ -38,7 +29,6 @@ class Order extends Model
     protected $casts = [
         'total' => 'decimal:2',
         'payment_verified_at' => 'datetime',
->>>>>>> 5b466fb (more reliable and front-end changes)
     ];
 
     public function user(): BelongsTo
@@ -50,8 +40,6 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
-<<<<<<< HEAD
-=======
 
     public function rejection(): HasOne
     {
@@ -67,5 +55,4 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'cancelled_by');
     }
->>>>>>> 5b466fb (more reliable and front-end changes)
 }

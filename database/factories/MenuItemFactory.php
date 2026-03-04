@@ -14,11 +14,7 @@ class MenuItemFactory extends Factory
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->sentence(),
             'price' => $this->faker->randomFloat(2, 2, 15),
-<<<<<<< HEAD
-            'featured_image' => 'https://picsum.photos/400/300?random=' . $this->faker->unique()->numberBetween(1, 100),
-=======
             'featured_image' => 'https://picsum.photos/400/300?random='.$this->faker->unique()->numberBetween(1, 100),
->>>>>>> 5b466fb (more reliable and front-end changes)
             'is_available' => true,
         ];
     }

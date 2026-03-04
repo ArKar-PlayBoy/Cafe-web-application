@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
->>>>>>> 5b466fb (more reliable and front-end changes)
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MenuItem extends Model
@@ -36,8 +33,6 @@ class MenuItem extends Model
     {
         return $this->hasMany(Cart::class);
     }
-<<<<<<< HEAD
-=======
 
     public function stockItems(): BelongsToMany
     {
@@ -45,5 +40,4 @@ class MenuItem extends Model
             ->withPivot('quantity_needed')
             ->withTimestamps();
     }
->>>>>>> 5b466fb (more reliable and front-end changes)
 }

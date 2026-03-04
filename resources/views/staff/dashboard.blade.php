@@ -3,28 +3,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<<<<<<< HEAD
-<h1 class="text-2xl font-bold mb-6 dark:text-white">Staff Dashboard</h1>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-        <h3 class="text-gray-500 dark:text-gray-400 text-sm">Pending Orders</h3>
-        <p class="text-3xl font-bold text-yellow-600 dark:text-yellow-400">{{ $stats['pendingOrders'] }}</p>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-        <h3 class="text-gray-500 dark:text-gray-400 text-sm">Preparing</h3>
-        <p class="text-3xl font-bold text-blue-600 dark:text-blue-400">{{ $stats['preparingOrders'] }}</p>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-        <h3 class="text-gray-500 dark:text-gray-400 text-sm">Ready</h3>
-        <p class="text-3xl font-bold text-green-600 dark:text-green-400">{{ $stats['readyOrders'] }}</p>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-        <h3 class="text-gray-500 dark:text-gray-400 text-sm">Pending Reservations</h3>
-        <p class="text-3xl font-bold dark:text-white">{{ $stats['pendingReservations'] }}</p>
-    </div>
-</div>
-=======
 <div class="mb-8">
     <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Staff Dashboard</h1>
     <p class="text-slate-500 dark:text-slate-400 mt-1">Hello, {{ Auth::guard('staff')->user()->name }}. Let's serve some great food today!</p>
@@ -107,5 +85,4 @@
         <svg class="w-8 h-8 text-slate-300 group-hover:text-white group-hover:translate-x-2 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </a>
 </div>
->>>>>>> 5b466fb (more reliable and front-end changes)
 @endsection

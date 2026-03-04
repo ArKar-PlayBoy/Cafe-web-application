@@ -10,11 +10,6 @@ class OrderController extends Controller
 {
     public function index()
     {
-<<<<<<< HEAD
-        $orders = Order::with('user')->latest()->get();
-        return view('admin.orders.index', compact('orders'));
-    }
-=======
         $orders = Order::with('user', 'items.menuItem')->latest()->paginate(15);
 
         return view('admin.orders.index', compact('orders'));
@@ -56,5 +51,4 @@ class OrderController extends Controller
 
         return back()->with('error', 'Payment rejected.');
     }
->>>>>>> 5b466fb (more reliable and front-end changes)
 }

@@ -2,14 +2,11 @@
 
 namespace App\Providers;
 
-<<<<<<< HEAD
-=======
 use App\Events\OrderCreated;
 use App\Events\OrderStatusChanged;
 use App\Listeners\SendOrderConfirmation;
 use App\Listeners\SendOrderStatusUpdate;
 use Illuminate\Support\Facades\Event;
->>>>>>> 5b466fb (more reliable and front-end changes)
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,9 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-<<<<<<< HEAD
-        //
-=======
         Event::listen(
             OrderCreated::class,
             SendOrderConfirmation::class
@@ -39,6 +33,5 @@ class AppServiceProvider extends ServiceProvider
             OrderStatusChanged::class,
             SendOrderStatusUpdate::class
         );
->>>>>>> 5b466fb (more reliable and front-end changes)
     }
 }

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-=======
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
@@ -18,4 +13,3 @@
 [x-cloak] {
     display: none !important;
 }
->>>>>>> 5b466fb (more reliable and front-end changes)

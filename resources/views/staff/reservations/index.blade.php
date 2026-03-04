@@ -9,15 +9,6 @@
     <table class="min-w-full">
         <thead class="bg-gray-50 dark:bg-gray-700">
             <tr>
-<<<<<<< HEAD
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">ID</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Customer</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Date</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Time</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Party Size</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Status</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Actions</th>
-=======
                 <th class="px-6 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">ID</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Customer</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Date</th>
@@ -25,16 +16,11 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Party Size</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Status</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Actions</th>
->>>>>>> 5b466fb (more reliable and front-end changes)
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($reservations as $reservation)
-<<<<<<< HEAD
-            <tr class="dark:text-white">
-=======
             <tr class="text-slate-800 dark:text-white">
->>>>>>> 5b466fb (more reliable and front-end changes)
                 <td class="px-6 py-4">#{{ $reservation->id }}</td>
                 <td class="px-6 py-4">{{ $reservation->user->name }}</td>
                 <td class="px-6 py-4">{{ $reservation->reservation_date }}</td>

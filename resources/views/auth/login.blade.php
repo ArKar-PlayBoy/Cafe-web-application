@@ -3,16 +3,12 @@
 
 @section('content')
 <!-- Session Status -->
-<<<<<<< HEAD
-<x-auth-session-status class="mb-4" :status="session('status')" />
-=======
 <x-auth-session-status class="mb-2" :status="session('status')" />
 @if (session('ban_reason'))
     <div class="mb-4 text-sm text-red-600 dark:text-red-400">
         Ban reason: {{ session('ban_reason') }}
     </div>
 @endif
->>>>>>> 5b466fb (more reliable and front-end changes)
 
 <form method="POST" action="{{ route('login') }}">
     @csrf

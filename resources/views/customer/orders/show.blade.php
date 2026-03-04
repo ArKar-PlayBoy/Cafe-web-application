@@ -4,9 +4,6 @@
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-<<<<<<< HEAD
-    <a href="{{ route('orders') }}" class="text-green-600 dark:text-green-400 hover:underline mb-4 inline-block">&larr; Back to Orders</a>
-=======
     <div class="flex justify-between items-center mb-4">
         <a href="{{ route('orders') }}" class="text-green-600 dark:text-green-400 hover:underline">&larr; Back to Orders</a>
         @if($order->status === 'pending')
@@ -16,7 +13,6 @@
             </form>
         @endif
     </div>
->>>>>>> 5b466fb (more reliable and front-end changes)
     
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
         <div class="flex justify-between items-start mb-6">
@@ -25,11 +21,6 @@
                 <p class="text-gray-500 dark:text-gray-400">{{ $order->created_at->format('M d, Y H:i') }}</p>
             </div>
             <div class="text-right">
-<<<<<<< HEAD
-                <span class="px-3 py-1 text-sm rounded-full {{ $order->status === 'pending' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' : ($order->status === 'completed' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400') }}">
-                    {{ ucfirst($order->status) }}
-                </span>
-=======
                 <span class="px-3 py-1 text-sm rounded-full {{ $order->status === 'pending' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' : ($order->status === 'completed' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : ($order->status === 'cancelled' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400')) }}">
                     {{ ucfirst($order->status) }}
                 </span>
@@ -41,7 +32,6 @@
                 @elseif($order->status === 'cancelled' && $order->canceller)
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Cancelled by you</p>
                 @endif
->>>>>>> 5b466fb (more reliable and front-end changes)
             </div>
         </div>
 
@@ -63,9 +53,6 @@
         <div class="border-t dark:border-gray-700 pt-6 mt-6">
             <h2 class="font-semibold text-lg mb-4">Payment Information</h2>
             <p class="text-gray-600 dark:text-gray-400"><strong>Method:</strong> {{ strtoupper($order->payment_method) }}</p>
-<<<<<<< HEAD
-            <p class="text-gray-600 dark:text-gray-400"><strong>Status:</strong> {{ ucfirst($order->payment_status) }}</p>
-=======
             <p class="text-gray-600 dark:text-gray-400"><strong>Status:</strong> 
                 <span class="{{ in_array($order->payment_status, ['verified', 'paid']) ? 'text-green-600 dark:text-green-400' : ($order->payment_status === 'failed' ? 'text-red-600 dark:text-red-400' : 'text-yellow-600 dark:text-yellow-400') }}">
                     {{ ucfirst($order->payment_status) }}
@@ -112,19 +99,11 @@
                 </a>
             </div>
             @endif
->>>>>>> 5b466fb (more reliable and front-end changes)
         </div>
 
         <div class="border-t dark:border-gray-700 pt-6 mt-6">
             <h2 class="font-semibold text-lg mb-4">Order Status Timeline</h2>
             <div class="flex items-center gap-2">
-<<<<<<< HEAD
-                @php $statuses = ['pending', 'preparing', 'ready', 'completed']; @endphp
-                @foreach($statuses as $status)
-                <div class="flex items-center">
-                    <div class="w-4 h-4 rounded-full {{ in_array($status, array_slice($statuses, 0, array_search($order->status, $statuses) + 1)) ? 'bg-green-500' : 'bg-gray-300 dark:bg-gray-600' }}"></div>
-                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ ucfirst($status) }}</span>
-=======
                 @php 
                 $statuses = ['pending', 'preparing', 'ready', 'completed'];
                 if ($order->status === 'cancelled') {
@@ -137,7 +116,6 @@
                 <div class="flex items-center">
                     <div class="w-4 h-4 rounded-full {{ in_array($status, $activeStatuses) ? ($order->status === 'cancelled' ? 'bg-red-500' : 'bg-green-500') : 'bg-gray-300 dark:bg-gray-600' }}"></div>
                     <span class="ml-2 text-sm {{ $order->status === 'cancelled' && $status === 'pending' ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-gray-400' }}">{{ ucfirst($status) }}</span>
->>>>>>> 5b466fb (more reliable and front-end changes)
                     @if(!$loop->last)<div class="w-8 h-0.5 bg-gray-300 dark:bg-gray-600 mx-2"></div>@endif
                 </div>
                 @endforeach

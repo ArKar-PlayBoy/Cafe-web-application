@@ -1,18 +1,9 @@
 # Cafe Web Application
-<<<<<<< HEAD
-=======
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 [![Laravel](https://img.shields.io/badge/Laravel-12.x-orange.svg)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.2+-blue.svg)](https://php.net)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/ArKar-PlayBoy/Cafe-web-application)](https://github.com/ArKar-PlayBoy/Cafe-web-application/stargazers)
-<<<<<<< HEAD
-A comprehensive cafe management system built with Laravel 12, Tailwind CSS, and Alpine.js. Manage orders, inventory, reservations, and staff - all from a modern, intuitive interface.
----
-## Features
-### Customer Experience
-=======
 
 A comprehensive cafe management system built with Laravel 12, Tailwind CSS, and Alpine.js. Manage orders, inventory, reservations, and staff - all from a modern, intuitive interface.
 
@@ -22,20 +13,15 @@ A comprehensive cafe management system built with Laravel 12, Tailwind CSS, and 
 
 ### Customer Experience
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 - **Digital Menu** - Browse products by categories with real-time availability status
 - **Smart Cart** - Persistent shopping cart with quantity management
 - **Table Reservations** - Interactive table booking system with date/time selection
 - **Multi-Channel Payments** - Support for COD, MPU, Visa, KBZ Pay, and Stripe
 - **Order Tracking** - Track order status in real-time (Pending → Preparing → Ready → Completed)
 - **Order History** - View past transactions and reorder easily
-<<<<<<< HEAD
-### Staff & Admin Power
-=======
 
 ### Staff & Admin Power
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 - **Live Dashboard** - Real-time statistics on orders, revenue, and reservations
 - **Order Management** - Complete workflow: Pending → Preparing → Ready → Completed
 - **Reservation Management** - View, confirm, or cancel table bookings
@@ -43,29 +29,20 @@ A comprehensive cafe management system built with Laravel 12, Tailwind CSS, and 
 - **Stock Alerts** - Automatic notifications for low stock and expiring items
 - **Recipe Management** - Define ingredient requirements for each menu item
 - **Batch Tracking** - FIFO inventory tracking with expiration dates
-<<<<<<< HEAD
-### Admin Exclusive
-=======
 
 ### Admin Exclusive
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 - **Full CRUD Operations** - Manage products, categories, tables, and users
 - **Role-Based Access** - Separate dashboards for Admin, Staff, and Customers
 - **User Management** - Create, ban/unban users, view activity
 - **Order Export** - Download order data as CSV for reporting
 - **Payment Verification** - Review and verify manual payment submissions
 - **Dark Mode** - Built-in theme toggling for different environments
-<<<<<<< HEAD
----
-## Tech Stack
-=======
 
 ---
 
 ## Tech Stack
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 | Component | Technology |
 |-----------|------------|
 | Framework | Laravel 12.x |
@@ -75,11 +52,6 @@ A comprehensive cafe management system built with Laravel 12, Tailwind CSS, and 
 | Build Tool | Vite 7.x |
 | Payment Gateway | Stripe, MPU, KBZ Pay |
 | PHP Version | 8.2+ |
-<<<<<<< HEAD
----
-## Screenshots
-> Add your screenshots here
-=======
 
 ---
 
@@ -87,7 +59,6 @@ A comprehensive cafe management system built with Laravel 12, Tailwind CSS, and 
 
 > Add your screenshots here
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 ```
 📸 Customer Menu
 📸 Shopping Cart
@@ -96,16 +67,11 @@ A comprehensive cafe management system built with Laravel 12, Tailwind CSS, and 
 📸 Staff Dashboard
 📸 Inventory Management
 ```
-<<<<<<< HEAD
----
-## Project Structure
-=======
 
 ---
 
 ## Project Structure
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 ```
 cafe-app/
 ├── app/
@@ -133,11 +99,6 @@ cafe-app/
 │   └── api.php               # API routes
 └── config/                   # Configuration files
 ```
-<<<<<<< HEAD
----
-## Installation
-### Prerequisites
-=======
 
 ---
 
@@ -145,36 +106,19 @@ cafe-app/
 
 ### Prerequisites
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 - PHP >= 8.2
 - Composer
 - Node.js & NPM
 - MySQL 8.0+
-<<<<<<< HEAD
-### Steps
-1. **Clone the repository**
-=======
 
 ### Steps
 
 1. **Clone the repository**
 
->>>>>>> 5b466fb (more reliable and front-end changes)
    ```bash
    git clone https://github.com/ArKar-PlayBoy/Cafe-web-application.git
    cd cafe-app
    ```
-<<<<<<< HEAD
-2. **Install PHP dependencies**
-   ```bash
-   composer install
-   ```
-3. **Install Node.js dependencies**
-   ```bash
-   npm install
-   ```
-4. **Environment Setup**
-=======
 
 2. **Install PHP dependencies**
 
@@ -190,21 +134,15 @@ cafe-app/
 
 4. **Environment Setup**
 
->>>>>>> 5b466fb (more reliable and front-end changes)
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
-<<<<<<< HEAD
-5. **Configure Database**
-   Open `.env` and update your MySQL credentials:
-=======
 
 5. **Configure Database**
 
    Open `.env` and update your MySQL credentials:
 
->>>>>>> 5b466fb (more reliable and front-end changes)
    ```env
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
@@ -213,29 +151,6 @@ cafe-app/
    DB_USERNAME=root
    DB_PASSWORD=your_password
    ```
-<<<<<<< HEAD
-6. **Run Migrations & Seeders**
-   ```bash
-   php artisan migrate --seed
-   ```
-7. **Compile Assets**
-   ```bash
-   npm run build
-   ```
-8. **Start the Server**
-   ```bash
-   # Terminal 1: Start Laravel server
-   php artisan serve
-   # Terminal 2: Start Vite dev server (optional, for hot reload)
-   npm run dev
-   ```
-9. **Access the Application**
-   - Customer Portal: http://localhost:8000
-   - Admin Panel: http://localhost:8000/admin/login
-   - Staff Panel: http://localhost:8000/staff/login
-### Default Credentials
-After seeding, you can login with:
-=======
 
 6. **Run Migrations & Seeders**
 
@@ -269,17 +184,11 @@ After seeding, you can login with:
 
 After seeding, you can login with:
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 | Role | Email | Password |
 |------|-------|----------|
 | Admin | admin@cafe.com | password |
 | Staff | staff@cafe.com | password |
 | Customer | user@cafe.com | password |
-<<<<<<< HEAD
----
-## API Routes Overview
-### Customer Routes (Authenticated)
-=======
 
 ---
 
@@ -287,7 +196,6 @@ After seeding, you can login with:
 
 ### Customer Routes (Authenticated)
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 | Method | Route | Description |
 |--------|-------|-------------|
 | GET | /menu | Browse menu items |
@@ -303,13 +211,9 @@ After seeding, you can login with:
 | POST | /orders/{order}/cancel | Cancel order |
 | GET | /reservations | View reservations |
 | POST | /reservations | Make reservation |
-<<<<<<< HEAD
-### Admin Routes
-=======
 
 ### Admin Routes
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 | Method | Route | Description |
 |--------|-------|-------------|
 | GET | /admin/dashboard | Admin dashboard |
@@ -323,13 +227,9 @@ After seeding, you can login with:
 | GET | /admin/stock | Inventory management |
 | GET | /admin/stock/alerts | Stock alerts |
 | GET | /admin/stock/batches | Batch tracking |
-<<<<<<< HEAD
-### Staff Routes
-=======
 
 ### Staff Routes
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 | Method | Route | Description |
 |--------|-------|-------------|
 | GET | /staff/dashboard | Staff dashboard |
@@ -342,11 +242,6 @@ After seeding, you can login with:
 | POST | /staff/stock/{stock}/in | Add stock |
 | POST | /staff/stock/{stock}/waste | Log waste |
 | POST | /staff/stock/{stock}/adjust | Adjust quantity |
-<<<<<<< HEAD
----
-## Database Schema
-The system uses a relational MySQL schema:
-=======
 
 ---
 
@@ -354,7 +249,6 @@ The system uses a relational MySQL schema:
 
 The system uses a relational MySQL schema:
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 ```
 Users (id, name, email, role_id, ...)
   ↓
@@ -370,47 +264,25 @@ StockItems (id, name, current_quantity, min_quantity, ...)
   ↓
 StockBatches (id, stock_item_id, quantity, expiry_date, ...)
 ```
-<<<<<<< HEAD
----
-## Security
-=======
 
 ---
 
 ## Security
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 - **Role-Based Access Control (RBAC)** - Strict middleware for Admin/Staff routes
 - **CSRF Protection** - All forms protected with Laravel tokens
 - **Password Hashing** - Bcrypt hashing via Laravel
 - **Input Validation** - Form request validation on all inputs
-<<<<<<< HEAD
----
-## Contributing
-=======
 
 ---
 
 ## Contributing
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-<<<<<<< HEAD
----
-## License
-This project is open-sourced software licensed under the [MIT license](LICENSE).
----
-## Author
-**Ar Kar**
-- GitHub: [@ArKar-PlayBoy](https://github.com/ArKar-PlayBoy)
-- Project: [Cafe Web Application](https://github.com/ArKar-PlayBoy/Cafe-web-application)
----
-## Acknowledgments
-=======
 
 ---
 
@@ -430,7 +302,6 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Acknowledgments
 
->>>>>>> 5b466fb (more reliable and front-end changes)
 - [Laravel](https://laravel.com) - The PHP framework
 - [Tailwind CSS](https://tailwindcss.com) - CSS framework
 - [Alpine.js](https://alpinejs.dev) - JavaScript framework

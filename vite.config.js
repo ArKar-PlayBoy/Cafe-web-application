@@ -8,10 +8,7 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-<<<<<<< HEAD
-=======
     server: {
         host: '127.0.0.1', // Avoid [::1] so CSP accepts the dev server URL
     },
->>>>>>> 5b466fb (more reliable and front-end changes)
 });

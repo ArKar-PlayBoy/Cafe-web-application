@@ -24,8 +24,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-<<<<<<< HEAD
-=======
         $user = \App\Models\User::where('email', $request->email)->first();
 
         if ($user && $user->is_banned) {
@@ -38,7 +36,6 @@ class AuthenticatedSessionController extends Controller
             ])->onlyInput('email');
         }
 
->>>>>>> 5b466fb (more reliable and front-end changes)
         $request->authenticate();
 
         $request->session()->regenerate();

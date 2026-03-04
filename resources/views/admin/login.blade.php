@@ -3,19 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-=======
     <meta name="csrf-token" content="{{ csrf_token() }}">
->>>>>>> 5b466fb (more reliable and front-end changes)
     <title>Admin Login - Cafe</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100">
     <div class="min-h-screen flex items-center justify-center">
         <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-<<<<<<< HEAD
-            <h2 class="text-2xl font-bold text-center mb-6">Admin Login</h2>
-=======
             <h2 class="text-2xl font-bold text-center mb-4">Admin Login</h2>
 
             @if ($errors->has('email'))
@@ -26,7 +20,6 @@
                     @endif
                 </div>
             @endif
->>>>>>> 5b466fb (more reliable and front-end changes)
             <form method="POST" action="{{ route('admin.login') }}">
                 @csrf
                 <div class="mb-4">

@@ -9,17 +9,6 @@ class OrderController extends Controller
 {
     public function index()
     {
-<<<<<<< HEAD
-        $orders = Order::with('items.menuItem')
-            ->where('user_id', auth()->id())
-            ->latest()
-            ->get();
-        
-        return view('customer.orders.index', compact('orders'));
-    }
-
-    public function show(Order $order)
-=======
         $orders = Order::with('items.menuItem', 'rejection')
             ->where('user_id', auth()->id())
             ->latest()
@@ -29,18 +18,10 @@ class OrderController extends Controller
     }
 
     public function show(Request $request, Order $order)
->>>>>>> 5b466fb (more reliable and front-end changes)
     {
         if ($order->user_id !== auth()->id()) {
             abort(403);
         }
-<<<<<<< HEAD
-        
-        $order->load('items.menuItem', 'user');
-        
-        return view('customer.orders.show', compact('order'));
-    }
-=======
 
         $order->load('items.menuItem', 'user', 'rejection', 'canceller');
 
@@ -102,5 +83,4 @@ class OrderController extends Controller
 
         return redirect()->route('orders')->with('success', 'Order cancelled successfully.');
     }
->>>>>>> 5b466fb (more reliable and front-end changes)
 }

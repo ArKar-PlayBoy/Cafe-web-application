@@ -9,13 +9,6 @@
     <table class="min-w-full">
         <thead class="bg-gray-50 dark:bg-gray-700">
             <tr>
-<<<<<<< HEAD
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Order ID</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Customer</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Total</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Status</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Actions</th>
-=======
                 <th class="px-4 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Order ID</th>
                 <th class="px-4 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Customer</th>
                 <th class="px-4 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Items</th>
@@ -23,23 +16,10 @@
                 <th class="px-4 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Payment</th>
                 <th class="px-4 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Status</th>
                 <th class="px-4 py-3 text-left text-xs font-medium text-slate-700 dark:text-gray-300 uppercase">Actions</th>
->>>>>>> 5b466fb (more reliable and front-end changes)
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($orders as $order)
-<<<<<<< HEAD
-            <tr class="dark:text-white">
-                <td class="px-6 py-4">#{{ $order->id }}</td>
-                <td class="px-6 py-4">{{ $order->user->name }}</td>
-                <td class="px-6 py-4">${{ number_format($order->total, 2) }}</td>
-                <td class="px-6 py-4">
-                    <span class="px-2 py-1 text-xs rounded {{ $order->status === 'pending' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' : ($order->status === 'completed' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200') }}">
-                        {{ ucfirst($order->status) }}
-                    </span>
-                </td>
-                <td class="px-6 py-4">
-=======
             <tr class="text-gray-900 dark:text-white">
                 <td class="px-4 py-4">#{{ $order->id }}</td>
                 <td class="px-4 py-4">{{ $order->user->name }}</td>
@@ -100,7 +80,6 @@
                     </div>
                     @endif
                     
->>>>>>> 5b466fb (more reliable and front-end changes)
                     <form action="{{ route('staff.orders.status', $order->id) }}" method="POST" class="inline">
                         @csrf @method('PUT')
                         <select name="status" class="border rounded px-2 py-1 text-sm dark:bg-gray-700 dark:text-white" onchange="this.form.submit()">
@@ -111,8 +90,6 @@
                             <option value="cancelled" {{ $order->status === 'cancelled' ? 'selected' : '' }}>Cancelled</option>
                         </select>
                     </form>
-<<<<<<< HEAD
-=======
                     <button type="button" onclick="document.getElementById('rejectModal{{ $order->id }}').showModal()" class="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 ml-2">
                         Reject
                     </button>
@@ -146,17 +123,13 @@
                     @else
                         <span class="text-gray-400 text-sm">No actions available</span>
                     @endif
->>>>>>> 5b466fb (more reliable and front-end changes)
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-<<<<<<< HEAD
-=======
     <div class="px-6 py-4">
         {{ $orders->links() }}
     </div>
->>>>>>> 5b466fb (more reliable and front-end changes)
 </div>
 @endsection

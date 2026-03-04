@@ -17,37 +17,23 @@
     @else
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="lg:col-span-2 space-y-4">
-<<<<<<< HEAD
-            @foreach($cartItems as $item)
-=======
             @php($cartTotal = 0)
             @foreach($cartItems as $item)
             @php($itemTotal = (int) $item->quantity * $item->menuItem->price)
             @php($cartTotal += $itemTotal)
->>>>>>> 5b466fb (more reliable and front-end changes)
             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 flex gap-4">
                 <img src="{{ $item->menuItem->featured_image }}" alt="{{ $item->menuItem->name }}" class="w-24 h-24 object-cover rounded-lg">
                 <div class="flex-1">
                     <h3 class="font-semibold text-lg">{{ $item->menuItem->name }}</h3>
                     <p class="text-green-600 dark:text-green-400 font-bold">${{ number_format($item->menuItem->price, 2) }}</p>
-<<<<<<< HEAD
-                    <form action="{{ route('cart.update', $item->id) }}" method="POST" class="flex items-center gap-2 mt-2">
-                        @csrf @method('PUT')
-                        <input type="number" name="quantity" value="{{ $item->quantity }}" min="1" class="w-16 border dark:border-gray-600 dark:bg-gray-700 rounded px-2 py-1">
-=======
                     <form action="{{ route('cart.update', $item->id) }}" method="POST" class="flex items-center gap-2 mt-2 cart-update-form">
                         @csrf @method('PUT')
                         <input type="number" name="quantity" value="{{ $item->quantity }}" min="1" max="99" class="w-16 border dark:border-gray-600 dark:bg-gray-700 rounded px-2 py-1 quantity-input" data-price="{{ $item->menuItem->price }}" data-item-id="{{ $item->id }}">
->>>>>>> 5b466fb (more reliable and front-end changes)
                         <button type="submit" class="text-green-600 dark:text-green-400 hover:underline">Update</button>
                     </form>
                 </div>
                 <div class="text-right">
-<<<<<<< HEAD
-                    <p class="font-bold text-lg">${{ number_format($item->quantity * $item->menuItem->price, 2) }}</p>
-=======
                     <p class="font-bold text-lg item-total" data-item-total="{{ $itemTotal }}">${{ number_format($itemTotal, 2) }}</p>
->>>>>>> 5b466fb (more reliable and front-end changes)
                     <form action="{{ route('cart.remove', $item->id) }}" method="POST" class="mt-2">
                         @csrf @method('DELETE')
                         <button type="submit" class="text-red-600 hover:underline">Remove</button>
@@ -60,27 +46,17 @@
             <h3 class="font-semibold text-xl mb-4">Order Summary</h3>
             <div class="flex justify-between mb-2 text-gray-600 dark:text-gray-400">
                 <span>Subtotal</span>
-<<<<<<< HEAD
-                <span>${{ number_format($total, 2) }}</span>
-            </div>
-            <div class="flex justify-between mb-4 pt-2 border-t dark:border-gray-700">
-                <span>Total</span>
-                <span class="font-bold text-xl text-green-600 dark:text-green-400">${{ number_format($total, 2) }}</span>
-=======
                 <span class="cart-subtotal">${{ number_format($cartTotal, 2) }}</span>
             </div>
             <div class="flex justify-between mb-4 pt-2 border-t dark:border-gray-700">
                 <span>Total</span>
                 <span class="font-bold text-xl text-green-600 dark:text-green-400 cart-total">${{ number_format($cartTotal, 2) }}</span>
->>>>>>> 5b466fb (more reliable and front-end changes)
             </div>
             <a href="{{ route('checkout') }}" class="block w-full bg-green-600 text-white text-center py-3 rounded-lg hover:bg-green-700 transition-colors">Proceed to Checkout</a>
         </div>
     </div>
     @endif
 </div>
-<<<<<<< HEAD
-=======
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -116,5 +92,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
->>>>>>> 5b466fb (more reliable and front-end changes)
 @endsection

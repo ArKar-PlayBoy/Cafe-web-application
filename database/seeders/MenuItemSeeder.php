@@ -10,35 +10,6 @@ class MenuItemSeeder extends Seeder
 {
     public function run(): void
     {
-<<<<<<< HEAD
-        $drinks = Category::where('slug', 'drinks')->first();
-        $food = Category::where('slug', 'food')->first();
-        $pastries = Category::where('slug', 'pastries')->first();
-
-        $menuItems = [
-            [
-                'category_id' => $drinks->id,
-                'name' => 'Espresso',
-                'description' => 'Strong and bold Italian coffee',
-                'price' => 3.50,
-                'featured_image' => '/images/menu-1.svg',
-                'is_available' => true,
-            ],
-            [
-                'category_id' => $drinks->id,
-                'name' => 'Cappuccino',
-                'description' => 'Smooth espresso with steamed milk foam',
-                'price' => 4.50,
-                'featured_image' => '/images/menu-2.svg',
-                'is_available' => true,
-            ],
-            [
-                'category_id' => $pastries->id,
-                'name' => 'Croissant',
-                'description' => 'Flaky, buttery French pastry',
-                'price' => 3.00,
-                'featured_image' => '/images/menu-3.svg',
-=======
         $coffee = Category::where('slug', 'coffee')->first();
         $tea = Category::where('slug', 'tea')->first();
         $frappuccino = Category::where('slug', 'frappuccino')->first();
@@ -178,17 +149,11 @@ class MenuItemSeeder extends Seeder
                 'description' => 'Flaky, buttery French pastry. Light, airy, and perfectly baked.',
                 'price' => 3.50,
                 'featured_image' => 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop',
->>>>>>> 5b466fb (more reliable and front-end changes)
                 'is_available' => true,
             ],
             [
                 'category_id' => $pastries->id,
                 'name' => 'Blueberry Muffin',
-<<<<<<< HEAD
-                'description' => 'Soft muffin loaded with fresh blueberries',
-                'price' => 3.50,
-                'featured_image' => '/images/menu-4.svg',
-=======
                 'description' => 'Soft muffin loaded with fresh blueberries. Sweet and satisfying.',
                 'price' => 3.75,
                 'featured_image' => 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=400&h=300&fit=crop',
@@ -209,17 +174,10 @@ class MenuItemSeeder extends Seeder
                 'description' => 'Smashed avocado on artisan bread with cherry tomatoes and sea salt.',
                 'price' => 8.50,
                 'featured_image' => 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=400&h=300&fit=crop',
->>>>>>> 5b466fb (more reliable and front-end changes)
                 'is_available' => true,
             ],
             [
                 'category_id' => $food->id,
-<<<<<<< HEAD
-                'name' => 'Caesar Salad',
-                'description' => 'Fresh romaine lettuce with Caesar dressing',
-                'price' => 8.00,
-                'featured_image' => '/images/menu-5.svg',
-=======
                 'name' => 'Chicken Caesar Salad',
                 'description' => 'Grilled chicken, romaine lettuce, parmesan, and Caesar dressing.',
                 'price' => 9.50,
@@ -232,20 +190,15 @@ class MenuItemSeeder extends Seeder
                 'description' => 'Sliced turkey, Swiss cheese, lettuce, and tomato on freshly baked bread.',
                 'price' => 8.00,
                 'featured_image' => 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&h=300&fit=crop',
->>>>>>> 5b466fb (more reliable and front-end changes)
                 'is_available' => true,
             ],
         ];
 
         foreach ($menuItems as $item) {
-<<<<<<< HEAD
-            MenuItem::create($item);
-=======
             MenuItem::updateOrCreate(
                 ['name' => $item['name']],
                 $item
             );
->>>>>>> 5b466fb (more reliable and front-end changes)
         }
     }
 }

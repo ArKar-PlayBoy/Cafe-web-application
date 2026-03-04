@@ -2,28 +2,19 @@
 
 namespace App\Http\Controllers\Staff;
 
-<<<<<<< HEAD
-use App\Http\Controllers\Controller;
-use App\Models\Order;
-=======
 use App\Events\OrderStatusChanged;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderRejection;
 use App\Services\StockService;
->>>>>>> 5b466fb (more reliable and front-end changes)
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
     public function index()
     {
-<<<<<<< HEAD
-        $orders = Order::with('user')->latest()->get();
-=======
         $orders = Order::with('user', 'items.menuItem', 'rejection')->latest()->paginate(15);
 
->>>>>>> 5b466fb (more reliable and front-end changes)
         return view('staff.orders.index', compact('orders'));
     }
 
@@ -33,11 +24,6 @@ class OrderController extends Controller
             'status' => 'required|in:pending,preparing,ready,completed,cancelled',
         ]);
 
-<<<<<<< HEAD
-        $order->update(['status' => $request->status]);
-        return back()->with('success', 'Order status updated successfully.');
-    }
-=======
         $previousStatus = $order->status;
 
         $order->update(['status' => $request->status]);
@@ -111,5 +97,4 @@ class OrderController extends Controller
 
         return back()->with('error', 'Payment rejected.');
     }
->>>>>>> 5b466fb (more reliable and front-end changes)
 }

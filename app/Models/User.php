@@ -17,10 +17,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-<<<<<<< HEAD
         'role_id',
-=======
->>>>>>> 5b466fb (more reliable and front-end changes)
         'phone',
         'address',
     ];
@@ -67,8 +64,6 @@ class User extends Authenticatable
     {
         return $this->role && $this->role->name === 'staff';
     }
-<<<<<<< HEAD
-=======
 
     public function isBanned(): bool
     {
@@ -90,5 +85,4 @@ class User extends Authenticatable
         $this->ban_reason = null;
         $this->save();
     }
->>>>>>> 5b466fb (more reliable and front-end changes)
 }

@@ -8,10 +8,6 @@ use App\Models\MenuItem;
 use App\Models\Order;
 use App\Models\Reservation;
 use App\Models\User;
-<<<<<<< HEAD
-use Illuminate\Http\Request;
-=======
->>>>>>> 5b466fb (more reliable and front-end changes)
 
 class DashboardController extends Controller
 {

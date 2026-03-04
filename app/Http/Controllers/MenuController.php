@@ -11,22 +11,6 @@ class MenuController extends Controller
     public function index(Request $request)
     {
         $category = $request->get('category');
-<<<<<<< HEAD
-        
-        if ($category) {
-            $menuItems = MenuItem::with('category')
-                ->where('category_id', $category)
-                ->where('is_available', true)
-                ->get();
-        } else {
-            $menuItems = MenuItem::with('category')
-                ->where('is_available', true)
-                ->get();
-        }
-        
-        $categories = Category::all();
-        
-=======
         $search = $request->get('search');
 
         $query = MenuItem::with('category')
@@ -46,7 +30,6 @@ class MenuController extends Controller
         $menuItems = $query->get();
         $categories = Category::all();
 
->>>>>>> 5b466fb (more reliable and front-end changes)
         return view('customer.menu.index', compact('menuItems', 'categories'));
     }
 }

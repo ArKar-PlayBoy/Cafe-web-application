@@ -3,20 +3,6 @@
 @section('title', 'Orders')
 
 @section('content')
-<<<<<<< HEAD
-<h1 class="text-2xl font-bold mb-6">All Orders</h1>
-
-<div class="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 overflow-hidden">
-    <table class="min-w-full">
-        <thead class="bg-gray-50 dark:bg-gray-700">
-            <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Order ID</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Customer</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Total</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Payment</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Status</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Date</th>
-=======
 <div class="flex items-center justify-between mb-6">
     <h1 class="text-2xl font-bold">All Orders</h1>
     <a href="{{ route('admin.orders.export-all', request()->only('status', 'from', 'to')) }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 text-sm">
@@ -36,19 +22,10 @@
                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Status</th>
                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Date</th>
                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Actions</th>
->>>>>>> 5b466fb (more reliable and front-end changes)
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
             @foreach($orders as $order)
-<<<<<<< HEAD
-            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
-                <td class="px-6 py-4 text-gray-900 dark:text-gray-100">#{{ $order->id }}</td>
-                <td class="px-6 py-4 text-gray-900 dark:text-gray-100">{{ $order->user->name }}</td>
-                <td class="px-6 py-4 text-gray-900 dark:text-gray-100">${{ number_format($order->total, 2) }}</td>
-                <td class="px-6 py-4 text-gray-900 dark:text-gray-100">{{ strtoupper($order->payment_method) }}</td>
-                <td class="px-6 py-4">
-=======
             <tr class="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors duration-200">
                 <td class="px-4 py-4 text-gray-900 dark:text-gray-100">#{{ $order->id }}</td>
                 <td class="px-4 py-4 text-gray-900 dark:text-gray-100">{{ $order->user->name }}</td>
@@ -72,14 +49,10 @@
                     </div>
                 </td>
                 <td class="px-4 py-4">
->>>>>>> 5b466fb (more reliable and front-end changes)
                     <span class="px-2 py-1 text-xs rounded {{ $order->status === 'pending' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300' : ($order->status === 'completed' ? 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300' : 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300') }}">
                         {{ ucfirst($order->status) }}
                     </span>
                 </td>
-<<<<<<< HEAD
-                <td class="px-6 py-4 text-gray-900 dark:text-gray-100">{{ $order->created_at->format('M d, Y H:i') }}</td>
-=======
                 <td class="px-4 py-4 text-gray-900 dark:text-gray-100 text-sm">{{ $order->created_at->format('M d, Y H:i') }}</td>
                 <td class="px-4 py-4">
                     <div class="flex flex-col gap-2">
@@ -117,16 +90,12 @@
                         </a>
                     </div>
                 </td>
->>>>>>> 5b466fb (more reliable and front-end changes)
             </tr>
             @endforeach
         </tbody>
     </table>
-<<<<<<< HEAD
-=======
     <div class="px-6 py-4">
         {{ $orders->links() }}
     </div>
->>>>>>> 5b466fb (more reliable and front-end changes)
 </div>
 @endsection

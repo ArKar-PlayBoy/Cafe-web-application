@@ -23,11 +23,6 @@
                     <h3 class="font-semibold text-lg">Order #{{ $order->id }}</h3>
                     <p class="text-gray-500 dark:text-gray-400 text-sm">{{ $order->created_at->format('M d, Y H:i') }}</p>
                 </div>
-<<<<<<< HEAD
-                <span class="px-3 py-1 text-sm rounded-full {{ $order->status === 'pending' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' : ($order->status === 'completed' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400') }}">
-                    {{ ucfirst($order->status) }}
-                </span>
-=======
                 <div class="text-right">
                     <span class="px-3 py-1 text-sm rounded-full {{ $order->status === 'pending' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' : ($order->status === 'completed' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : ($order->status === 'cancelled' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400')) }}">
                         {{ ucfirst($order->status) }}
@@ -36,7 +31,6 @@
                         <p class="text-xs text-red-600 dark:text-red-400 mt-1">{{ $order->rejection->reason }}</p>
                     @endif
                 </div>
->>>>>>> 5b466fb (more reliable and front-end changes)
             </div>
             <div class="flex justify-between items-center">
                 <div>
@@ -52,12 +46,9 @@
         </div>
         @endforeach
     </div>
-<<<<<<< HEAD
-=======
     <div class="mt-6">
         {{ $orders->links() }}
     </div>
->>>>>>> 5b466fb (more reliable and front-end changes)
     @endif
 </div>
 @endsection

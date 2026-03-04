@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\MenuItem;
-<<<<<<< HEAD
-=======
 use App\Services\StockService;
->>>>>>> 5b466fb (more reliable and front-end changes)
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -16,14 +13,6 @@ class CartController extends Controller
     {
         $cartItems = Cart::with('menuItem')
             ->where('user_id', auth()->id())
-<<<<<<< HEAD
-            ->get();
-        
-        $total = $cartItems->sum(function ($item) {
-            return $item->quantity * $item->menuItem->price;
-        });
-        
-=======
             ->whereHas('menuItem')
             ->get();
 
@@ -31,18 +20,11 @@ class CartController extends Controller
             return (int) $item->quantity * $item->menuItem->price;
         });
 
->>>>>>> 5b466fb (more reliable and front-end changes)
         return view('customer.cart.index', compact('cartItems', 'total'));
     }
 
     public function add(Request $request, MenuItem $menuItem)
     {
-<<<<<<< HEAD
-        if (!$menuItem->is_available) {
-            return back()->with('error', 'This item is not available.');
-        }
-
-=======
         if (! $menuItem->is_available) {
             if ($request->wantsJson()) {
                 return response()->json(['success' => false, 'message' => 'This item is not available.'], 400);
@@ -53,15 +35,10 @@ class CartController extends Controller
 
         $quantity = max(1, (int) $request->input('quantity', 1));
 
->>>>>>> 5b466fb (more reliable and front-end changes)
         $cartItem = Cart::where('user_id', auth()->id())
             ->where('menu_item_id', $menuItem->id)
             ->first();
 
-<<<<<<< HEAD
-        if ($cartItem) {
-            $cartItem->quantity += 1;
-=======
         $menuItem->loadMissing('stockItems');
 
         $newQuantity = $cartItem ? ((int) $cartItem->quantity + $quantity) : $quantity;
@@ -87,19 +64,11 @@ class CartController extends Controller
 
         if ($cartItem) {
             $cartItem->quantity = (int) $cartItem->quantity + (int) $quantity;
->>>>>>> 5b466fb (more reliable and front-end changes)
             $cartItem->save();
         } else {
             Cart::create([
                 'user_id' => auth()->id(),
                 'menu_item_id' => $menuItem->id,
-<<<<<<< HEAD
-                'quantity' => 1,
-            ]);
-        }
-
-        return back()->with('success', 'Item added to cart.');
-=======
                 'quantity' => $quantity,
             ]);
         }
@@ -115,7 +84,6 @@ class CartController extends Controller
         }
 
         return redirect()->route('cart')->with('success', 'Item(s) added to cart.');
->>>>>>> 5b466fb (more reliable and front-end changes)
     }
 
     public function update(Request $request, Cart $cartItem)
@@ -125,18 +93,11 @@ class CartController extends Controller
         }
 
         $request->validate([
-<<<<<<< HEAD
-            'quantity' => 'required|integer|min:1',
-        ]);
-
-        $cartItem->update(['quantity' => $request->quantity]);
-=======
             'quantity' => 'required|integer|min:1|max:99',
         ]);
 
         $cartItem->update(['quantity' => (int) $request->quantity]);
 
->>>>>>> 5b466fb (more reliable and front-end changes)
         return back()->with('success', 'Cart updated.');
     }
 
@@ -147,10 +108,7 @@ class CartController extends Controller
         }
 
         $cartItem->delete();
-<<<<<<< HEAD
-=======
 
->>>>>>> 5b466fb (more reliable and front-end changes)
         return back()->with('success', 'Item removed from cart.');
     }
 }
