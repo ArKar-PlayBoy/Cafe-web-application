@@ -114,21 +114,10 @@ class User extends Authenticatable
             return true;
         }
 
-        // Check cache first
-        $cacheKey = "user:{$this->id}:permission:{$permission}";
-        return Cache::remember($cacheKey, 300, function () use ($permission) {
-            // Check direct permissions
-            if ($this->directPermissions()->where('slug', $permission)->exists()) {
-                return true;
-            }
+        // Get all permissions (cached with single key)
+        $allPermissions = $this->getAllPermissions();
 
-            // Check role permissions
-            if ($this->role && $this->role->hasPermission($permission)) {
-                return true;
-            }
-
-            return false;
-        });
+        return in_array($permission, $allPermissions);
     }
 
     public function hasAnyPermission(array $permissions): bool
@@ -233,12 +222,6 @@ class User extends Authenticatable
     {
         Cache::forget("user:{$this->id}:permissions");
         Cache::forget("user:{$this->id}:all_permissions");
-        Cache::forget("user:{$this->id}:permission:users.edit");
-        Cache::forget("user:{$this->id}:permission:users.delete");
-        Cache::forget("user:{$this->id}:permission:users.ban");
-        Cache::forget("user:{$this->id}:permission:users.create");
-        Cache::forget("user:{$this->id}:permission:users.view");
-        Cache::forget("user:{$this->id}:permission:users.manage_staff");
     }
 
     public function getAllPermissions(): array
@@ -248,10 +231,18 @@ class User extends Authenticatable
             $permissions = collect();
 
             if ($this->role) {
-                $permissions = $permissions->merge($this->role->permissions()->pluck('slug'));
+                // Ensure role permissions are loaded
+                if (!$this->role->relationLoaded('permissions')) {
+                    $this->role->load('permissions');
+                }
+                $permissions = $permissions->merge($this->role->permissions->pluck('slug'));
             }
 
-            $permissions = $permissions->merge($this->directPermissions()->pluck('slug'));
+            // Ensure direct permissions are loaded
+            if (!$this->relationLoaded('directPermissions')) {
+                $this->load('directPermissions');
+            }
+            $permissions = $permissions->merge($this->directPermissions->pluck('slug'));
 
             return $permissions->unique()->values()->toArray();
         });

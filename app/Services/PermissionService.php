@@ -116,6 +116,7 @@ class PermissionService
         $role->permissions()->sync($permissionIds);
         
         // Clear cache for all users with this role
+        $role->load('users.role.permissions', 'users.directPermissions');
         $role->users()->each(function ($user) {
             $user->clearPermissionCache();
         });
