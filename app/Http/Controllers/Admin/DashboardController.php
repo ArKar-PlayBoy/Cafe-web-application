@@ -17,14 +17,16 @@ class DashboardController extends Controller
             'totalOrders' => Order::count(),
             'pendingOrders' => Order::where('status', 'pending')->count(),
             'todayOrders' => Order::whereDate('created_at', today())->count(),
+            'todayRevenue' => Order::whereDate('created_at', today())->where('payment_status', 'paid')->sum('total'),
             'totalRevenue' => Order::where('payment_status', 'paid')->sum('total'),
             'totalUsers' => User::count(),
             'totalMenuItems' => MenuItem::count(),
             'totalTables' => CafeTable::count(),
             'pendingReservations' => Reservation::where('status', 'pending')->count(),
+            'lowStockItems' => MenuItem::where('stock', '<=', 5)->count(),
         ];
 
-        $recentOrders = Order::with('user')->latest()->take(5)->get();
+        $recentOrders = Order::with('user', 'items')->latest()->take(5)->get();
 
         return view('admin.dashboard', compact('stats', 'recentOrders'));
     }
