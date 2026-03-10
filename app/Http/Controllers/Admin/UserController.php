@@ -167,8 +167,11 @@ class UserController extends Controller
         }
 
         $user->update($data);
-        $user->role_id = $request->role_id;
-        $user->save();
+        
+        // Use assignRole to trigger event for cache clearing
+        if ($request->role_id && $role) {
+            $user->assignRole($role);
+        }
 
         // Log the action
         AuditLog::create([

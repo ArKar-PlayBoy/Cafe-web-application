@@ -2,12 +2,14 @@
 
 namespace App\Services;
 
+use App\Events\RolePermissionsUpdated;
 use App\Models\ApprovalRequest;
 use App\Models\Category;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Event;
 
 class PermissionService
 {
@@ -115,11 +117,8 @@ class PermissionService
         $permissionIds = Permission::whereIn('slug', $permissionSlugs)->pluck('id');
         $role->permissions()->sync($permissionIds);
         
-        // Clear cache for all users with this role
-        $role->load('users.role.permissions', 'users.directPermissions');
-        $role->users()->each(function ($user) {
-            $user->clearPermissionCache();
-        });
+        // Dispatch event to clear permission cache for all users with this role
+        Event::dispatch(new RolePermissionsUpdated($role));
     }
 
     public static function createRoleWithPermissions(string $name, string $slug, array $permissionSlugs, ?string $description = null): Role

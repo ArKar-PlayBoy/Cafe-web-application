@@ -63,11 +63,6 @@ class PermissionController extends Controller
 
         PermissionService::assignPermissionsToRole($role, $permissions);
 
-        // Clear permission cache for all users with this role
-        $role->users()->each(function ($user) {
-            $user->clearPermissionCache();
-        });
-
         return redirect()->route('admin.permissions.index')
             ->with('success', "Permissions updated for role: {$role->name}");
     }
@@ -109,12 +104,9 @@ class PermissionController extends Controller
         $criticalPermissions = PermissionService::CRITICAL_PERMISSIONS;
         $permissions = array_diff($permissions, $criticalPermissions);
 
-        // Sync direct permissions
+        // Sync direct permissions (event will be dispatched automatically)
         $permissionIds = Permission::whereIn('slug', $permissions)->pluck('id');
-        $user->directPermissions()->sync($permissionIds);
-        
-        // Clear user's permission cache
-        $user->clearPermissionCache();
+        $user->syncDirectPermissions($permissionIds);
 
         return redirect()->route('admin.permissions.index')
             ->with('success', "Direct permissions updated for user: {$user->name}");

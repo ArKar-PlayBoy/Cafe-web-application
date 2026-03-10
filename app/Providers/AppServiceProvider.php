@@ -4,6 +4,12 @@ namespace App\Providers;
 
 use App\Events\OrderCreated;
 use App\Events\OrderStatusChanged;
+use App\Events\RolePermissionsUpdated;
+use App\Events\UserPermissionsChanged;
+use App\Events\UserRoleChanged;
+use App\Listeners\ClearRoleUserPermissionsCache;
+use App\Listeners\ClearUserAndOldRolePermissionsCache;
+use App\Listeners\ClearUserPermissionsCache;
 use App\Listeners\SendOrderConfirmation;
 use App\Listeners\SendOrderStatusUpdate;
 use App\Models\Category;
@@ -37,6 +43,21 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(
             OrderStatusChanged::class,
             SendOrderStatusUpdate::class
+        );
+
+        Event::listen(
+            RolePermissionsUpdated::class,
+            ClearRoleUserPermissionsCache::class
+        );
+
+        Event::listen(
+            UserPermissionsChanged::class,
+            ClearUserPermissionsCache::class
+        );
+
+        Event::listen(
+            UserRoleChanged::class,
+            ClearUserAndOldRolePermissionsCache::class
         );
 
         // Register Gates for all permissions

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Events\UserPermissionsChanged;
+use App\Events\UserRoleChanged;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -9,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Event;
 
 class User extends Authenticatable
 {
@@ -222,6 +225,36 @@ class User extends Authenticatable
     {
         Cache::forget("user:{$this->id}:permissions");
         Cache::forget("user:{$this->id}:all_permissions");
+    }
+
+    public function assignRole(Role $role): void
+    {
+        $oldRoleId = $this->role_id;
+        $this->role_id = $role->id;
+        $this->save();
+        
+        Event::dispatch(new UserRoleChanged($this, $oldRoleId));
+    }
+
+    public function syncDirectPermissions(array $permissionIds): void
+    {
+        $this->directPermissions()->sync($permissionIds);
+        
+        Event::dispatch(new UserPermissionsChanged($this));
+    }
+
+    public function attachPermission(Permission $permission): void
+    {
+        $this->directPermissions()->attach($permission->id);
+        
+        Event::dispatch(new UserPermissionsChanged($this));
+    }
+
+    public function detachPermission(Permission $permission): void
+    {
+        $this->directPermissions()->detach($permission->id);
+        
+        Event::dispatch(new UserPermissionsChanged($this));
     }
 
     public function getAllPermissions(): array
